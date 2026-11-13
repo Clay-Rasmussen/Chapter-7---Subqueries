@@ -35,10 +35,52 @@ WHERE customer_id IN (
 ORDER BY customer_id, payment_date;
 
 -- B   Rewrite the query to use a INNER JOIN (default join type) instead of a subquery
-
 SELECT p.payment_id, p.customer_id, p.staff_id, p.rental_id, p.amount
 FROM payment p 
 JOIN customer c 
 	ON p.customer_id = c.customer_id
 WHERE c.store_id = 2
 ORDER BY p.customer_id, p.payment_date;
+
+
+/*
+Clay Rasmussen
+Query 3: WHERE clause using the ALL operator subquery returning a list
+3.A Write a query that uses a subquery in the WHERE clause using the ALL operator to display all customer's payments
+where the amount is greater than all of customer 1's payments. Order by customer id and payment date.
+*/
+-- A
+SELECT payment_id, customer_id, payment_date, amount 
+FROM payment
+WHERE amount > ALL (
+    SELECT amount
+    FROM payment
+    WHERE customer_id = 1
+)
+ORDER BY customer_id, payment_date;
+
+-- B     Rewrite the query to use a subquery using the MAX aggerated function instead of ALL operator.
+SELECT payment_id, customer_id, payment_date, amount
+FROM payment
+WHERE amount > (
+    SELECT MAX(amount)
+    FROM payment
+    WHERE customer_id = 1
+)
+ORDER BY customer_id, payment_date;
+
+/*
+Query 4: WHERE correlated subquery running multiple times (once for each outer
+row)
+4.A Write a query that uses the AVG aggerated function to display each customer's average amount paid.
+*/
+-- A
+
+
+-- B     4.B Write a query that uses a correlated subquery in the WHERE clause to count all customer's payments greater than the customer's average payment.
+
+
+
+
+
+
