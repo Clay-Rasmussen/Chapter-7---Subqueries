@@ -71,18 +71,31 @@ ORDER BY customer_id, payment_date;
 
 
 /*
+Clay Rasmussen
 Query 4: WHERE correlated subquery running multiple times (once for each outer
 row)
 4.A Write a query that uses the AVG aggerated function to display each customer's average amount paid.
 */
 -- A Write a query that uses the AVG aggerated function to display each customer's average amount paid.
-
+SELECT customer_id, AVG(amount) AS average_amount_paid
+FROM payment
+GROUP BY customer_id
+ORDER BY customer_id;
 
 -- B Write a query that uses a correlated subquery in the WHERE clause to count all customer's payments greater than the customer's average payment.
-
+SELECT p.customer_id, COUNT(*) AS payments_above_avg
+FROM payment AS p
+WHERE p.amount > (
+	SELECT AVG(p2.amount)
+    FROM payment AS p2
+    WHERE p2.customer_id = p.customer_id
+)
+GROUP BY p.customer_id
+ORDER BY p.customer_id;
 
 
 /*
+Clay Rasmussen
 Query 5: WHERE subquery using EXISTS operator returning a Boolean value
 NOTE: create a new customer so that there is at least one customer without a payment
 */
@@ -96,6 +109,7 @@ NOTE: create a new customer so that there is at least one customer without a pay
 
 
 /*
+Clay Rasmussen
 Query 6: SELECT subquery returning a single value
 */
 -- A Write a query that uses a correlated subquery in the SELECT clause displaying each customer's MAX payment date. Order by customer id DESC.
@@ -111,6 +125,7 @@ Query 6: SELECT subquery returning a single value
 
 
 /*
+Clay Rasmussen
 Query 7: FROM subquery returning a inline view (temporary table)
 */
 -- A Write a query that display the top customer based on total amount paid. To do this, group the payment table by customer, sort descending by total amount paid and limit the query to only display the first record.
