@@ -36,13 +36,17 @@
 ## Query 1 - WHERE subquery returning one value
 
 ### What This Exercise Was About
-add
+This exercise uses a scalar subquery in the WHERE clause to find payments whose amount is greater than the average payment amount. The
+outer query counts the matching payments.
 
 ### New Concepts
-- add
+- Scalar subqueries that return one value
+- Aggregate functions such as `AVG()` and `COUNT()`
+- Comparing a value with a subquery result in a WHERE clause
 
 ### Learning Outcomes
-- add
+- Use a subquery to calculate an aggregate value for comparison.
+- Count rows that meet a condition based on the overall average payment.
 
 **Screenshot of Output:**
 
@@ -55,15 +59,17 @@ add
 ## Query 2 - WHERE subquery returning a list
 
 ### What This Exercise Was About
+This exercise finds payments made by customers associated with store 2. Query 2.A uses an `IN` subquery to return the relevant customer IDs, and Query 2.B rewrites the same task with an `INNER JOIN`. Both versions sort the results by customer ID and payment date.
 
-add
 ### New Concepts
-
-- add
+- Subqueries that return a list of values
+- The `IN` operator
+- Rewriting a subquery as an `INNER JOIN`
+- Sorting results with `ORDER BY`
 
 ### Learning Outcomes
-
-- add
+- Filter payment rows using a list of customer IDs from another query.
+- Express the same relationship with either an `IN` subquery or an `INNER JOIN`.
 
 **Screenshot of Output:**
 
@@ -76,13 +82,18 @@ add
 ## Query 3 - WHERE ALL keyword subquery returning a list
 
 ### What This Exercise Was About
-add
+This exercise displays payments whose amount is greater than every payment made by customer 1. Query 3.A compares payment amounts with the
+list returned by a subquery using `> ALL`; Query 3.B performs the same comparison using the maximum payment amount from customer 1. Results
+are ordered by customer ID and payment date.
 
 ### New Concepts
-- add
+- The `ALL` comparison operator with a subquery
+Comparing a value against every value in a returned list
+The `MAX()` aggregate function as an alternative to `> ALL`
 
 ### Learning Outcomes
-- add
+- Find values greater than all values in a subquery result.
+- Recognize when an aggregate such as `MAX()` can express the same threshold.
 
 **Screenshot of Output:**
 
@@ -95,13 +106,18 @@ add
 ## Query 4 - WHERE correlated subquery running multiple times
 
 ### What This Exercise Was About
-add
+Query 4.A calculates each customer's average payment. Query 4.B uses a correlated subquery to count, for each customer, the payments
+greater than that customer's own average. The inner query refers to the current customer from the outer query.
 
 ### New Concepts
-- add
+- Correlated subqueries
+- Subqueries that run in relation to rows from the outer query
+- Per-customer aggregation with `AVG()` and `COUNT()`
 
 ### Learning Outcomes
-- add
+- Calculate an aggregate separately for each customer.
+- Use an outer-query value inside a subquery to make a row-specific comparison.
+- Count each customer's payments that exceed that customer's average.
 
 **Screenshot of Output:**
 
@@ -121,13 +137,19 @@ Chapter 7 Query 4B
 ## Query 5 - WHERE EXISTS operator subquery returning a boolean value
 
 ### What This Exercise Was About
-add
+This exercise identifies customers who have no payment records. The assignment first requires a new customer with no payments. Query 5.A
+checks for the absence of matching payment rows with `NOT EXISTS`, and Query 5.B rewrites the result using a `LEFT JOIN` and a null check.
 
 ### New Concepts
-- add
+- `EXISTS` and `NOT EXISTS`
+- Boolean existence checks in a `WHERE` clause
+- Finding unmatched records with a `LEFT JOIN`
+- Checking for `NULL` values
 
 ### Learning Outcomes
-- add
+- Find customers without related payment records.
+- Use `NOT EXISTS` to test that a related row is absent.
+- Rewrite an anti-match query with a `LEFT JOIN` and `NULL` check.
 
 **Screenshot of Output:**
 
@@ -142,13 +164,19 @@ Chapter 7 Query 5B
 ## Query 6 - SELECT subquery returning a single value
 
 ### What This Exercise Was About
-add
+Query 6.A uses a correlated subquery in the `SELECT` clause to display each customer's most recent payment date, ordering customers by ID in
+descending order. Query 6.B rewrites the result using a `LEFT JOIN`.
 
 ### New Concepts
-- add
+- Scalar subqueries in the `SELECT` clause
+- Correlated subqueries
+- The `MAX()` aggregate function
+- Rewriting a scalar subquery with a `LEFT JOIN`
 
 ### Learning Outcomes
-- add
+- Add a calculated value to each output row with a subquery in the `SELECT` clause.
+- Find each customer's latest payment date.
+- Preserve customers with no matching payment when using a `LEFT JOIN.`
 
 **Screenshot of Output:**
 
@@ -161,13 +189,20 @@ add
 ## Query 7 - FROM subquery returning an inline view
 
 ### What This Exercise Was About
-add
+Query 7.A groups payments by customer, sorts customers by total amount paid, and limits the result to the top customer. Query 7.B uses that
+result as an inline view, joins it to the payment table, and displays the top customer's payments in payment-date order.
 
 ### New Concepts
-- add
+- Subqueries in the `FROM` clause
+- Inline views (derived tables)
+- Grouping and aggregation with `GROUP BY` and `SUM()`
+- Sorting and limiting results with `ORDER BY` and `LIMIT`
+- Joining an inline view to a table
 
 ### Learning Outcomes
-- add
+- Build a temporary result set in the `FROM` clause and query it like a table.
+- Identify the customer with the greatest total payment amount.
+- Use an inline view to retrieve all payment rows for that customer.
 
 **Screenshot of Output:**
 
