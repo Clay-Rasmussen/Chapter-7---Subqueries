@@ -46,7 +46,7 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query1.png" alt="Query 1 Output" width="500">
+<img src="assets/Ch7_Query1.png" alt="Query 1 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
@@ -67,7 +67,7 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query2.png" alt="Query 2 Output" width="500">
+<img src="assets/Ch7_Query2.png" alt="Query 2 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
@@ -86,7 +86,7 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query3.png" alt="Query 3 Output" width="500">
+<img src="assets/Ch7_Query3.png" alt="Query 3 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
@@ -105,7 +105,14 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query4.png" alt="Query 4 Output" width="500">
+Chapter 7 Query 4A
+
+<img src="assets/Ch7_Query4A.png" alt="Query 4 Output" width="500">
+
+Chapter 7 Query 4B
+
+<img src="assets/Ch7_Query4B.png" alt="Query 4 Output" width="500">
+
 
 [Back to the top](#table-of-contents)
 
@@ -124,7 +131,9 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query5.png" alt="Query 5 Output" width="500">
+Chapter 7 Query 5B
+
+<img src="assets/Ch7_Query5B.png" alt="Query 5 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
@@ -143,7 +152,7 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query6.png" alt="Query 6 Output" width="500">
+<img src="assets/Ch7_Query6.png" alt="Query 6 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
@@ -162,7 +171,13 @@ add
 
 **Screenshot of Output:**
 
-<img src="assets/Ch7Query7.png" alt="Query 7 Output" width="500">
+Chapter 7 Query 7A
+
+<img src="assets/Ch7_Query7A.png" alt="Query 7 Output" width="500">
+
+Chapter 7 Query 7B
+
+<img src="assets/Ch7_Query7B.png" alt="Query 7 Output" width="500">
 
 [Back to the top](#table-of-contents)
 
