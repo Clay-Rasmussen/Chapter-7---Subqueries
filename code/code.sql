@@ -145,6 +145,24 @@ Clay Rasmussen
 Query 7: FROM subquery returning a inline view (temporary table)
 */
 -- A Write a query that display the top customer based on total amount paid. To do this, group the payment table by customer, sort descending by total amount paid and limit the query to only display the first record.
-
+SELECT customer_id, total_amount_paid
+FROM (
+	SELECT customer_id, SUM(amount) as total_amount_paid
+    FROM payment
+    GROUP BY customer_id
+    ORDER BY total_amount_paid DESC
+    LIMIT 1
+) AS top_customer;
 
 -- B Write a query that displays all the payments for the top customer by joining 7.A query to the payment table sorting by payment date.
+SELECT p.customer_id, p.staff_id, p.rental_id, p.amount, p.payment_date
+FROM payment p
+JOIN (
+	SELECT customer_id, SUM(amount) as total_amount_paid
+    FROM payment
+    GROUP BY customer_id
+    ORDER BY total_amount_paid DESC
+    LIMIT 1
+) AS top_customer
+ON p.customer_id = top_customer.customer_id
+ORDER BY p.payment_date;
