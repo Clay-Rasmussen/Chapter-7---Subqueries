@@ -1,8 +1,8 @@
 /*
-Chapter 7: Subqueries
-Name: Clay Rasmussen 
-Date: 
-GitHub URL: https://github.com/Clay-Rasmussen/Chapter-7---Subqueries
+Chapter 7..: Subqueries
+Name.......: Clay Rasmussen 
+Date.......: 11/7/26
+GitHub URL.: https://github.com/Clay-Rasmussen/Chapter-7---Subqueries
 */
 
 /*
@@ -100,12 +100,22 @@ Query 5: WHERE subquery using EXISTS operator returning a Boolean value
 NOTE: create a new customer so that there is at least one customer without a payment
 */
 -- A Write a query that uses a subquery in the WHERE clause with the NOT EXISTS operator for customers who do not have any payments. Order by customer id.
-
-
-
+SELECT c.customer_id, c.first_name, c.last_name
+FROM customer c
+WHERE NOT EXISTS (
+	SELECT *
+    FROM payment p
+    WHERE c.customer_id = p.customer_id
+)
+ORDER BY c.customer_id;
 
 -- B Rewrite the query to use a LEFT JOIN instead of a subquery
-
+SELECT c.customer_id, c.first_name, c.last_name
+FROM customer c 
+LEFT JOIN payment p
+    ON c.customer_id = p.customer_id
+WHERE p.payment_id IS NULL
+ORDER BY c.customer_id;
 
 
 /*
@@ -113,15 +123,21 @@ Clay Rasmussen
 Query 6: SELECT subquery returning a single value
 */
 -- A Write a query that uses a correlated subquery in the SELECT clause displaying each customer's MAX payment date. Order by customer id DESC.
-
-
-
+SELECT c.customer_id, c.first_name, c.last_name, (
+	SELECT MAX(p.payment_date)
+    FROM payment p
+    WHERE p.customer_id = c.customer_id
+) AS max_payment_date
+FROM customer c
+ORDER BY c.customer_id DESC;
 
 -- B Rewrite the query to use a LEFT JOIN instead of a subquery
-
-
-
-
+SELECT c.customer_id, c.first_name, c.last_name, MAX(p.payment_date) as max_payment_date
+FROM customer c 
+LEFT JOIN payment p
+	ON p.customer_id = c.customer_id
+GROUP BY c.customer_id
+ORDER BY c.customer_id DESC;
 
 
 /*
